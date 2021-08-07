@@ -11,7 +11,7 @@ local SYSTEM_ENV = RunService:IsServer() and "Server" or "Client"
 if (SYSTEM_ENV == "Server") then
   config = require(ServerScriptService.Boot.ServerRootConf)
 else
-  config = require(ReplicatedStorage.ClientBoot.ClientRootConf)
+  config = require(ReplicatedStorage.ClientScriptService.ClientBoot.ClientRootConf)
 end
 
 return function()
