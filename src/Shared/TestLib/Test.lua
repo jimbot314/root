@@ -23,6 +23,10 @@ function Test:describe(description, callback)
   }
 end
 
+function Test:describex(description, callback)
+  return
+end
+
 function Test:Run()
   for i,v in ipairs(describeQueue) do
     warn(("Running test suite '%s'"):format(v.Description))

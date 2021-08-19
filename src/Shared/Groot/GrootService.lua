@@ -24,6 +24,7 @@ function Groot:__OnStart()
 			Name = "GrootContentLoaded",
 			Parent = self.plr
 		})
+		self:emit("AfterGrootStart")
 	end
 end
 
