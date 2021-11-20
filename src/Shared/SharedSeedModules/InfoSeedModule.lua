@@ -6,7 +6,7 @@ function InfoSeedModule:Get(id)
     return self._cache[id]
   end
   for i,v in ipairs(self._info) do
-    if (v.Id == id or v.Name == id) then
+    if (v.Id == id or v.ClassId == id or v.Name == id) then
       self._cache[id] = v
       return v
     end

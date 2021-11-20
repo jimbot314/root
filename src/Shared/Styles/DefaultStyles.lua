@@ -41,6 +41,13 @@ function DefaultStyles:All()
 			},
 		},
 
+		vpaddingmd = {
+			UIPadding = {
+				PaddingBottom = UDim.new(0.1,0),
+				PaddingTop = UDim.new(0.1,0)
+			},
+		},
+
 		xy = {
 			SizeConstraint = Enum.SizeConstraint.RelativeXY
 		},
@@ -70,7 +77,11 @@ function DefaultStyles:All()
 
 		opaque = {
 			BackgroundTransparency = 0
-		}
+		},
+
+		round = {
+			CornerRadius = UDim.new(0,5)
+		},
 	}
 end
 

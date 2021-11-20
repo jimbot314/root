@@ -16,4 +16,10 @@ function PlayerService:__OnStart()
 	warn("remember to set to emitsync on the other place")
 end
 
+function PlayerService:GetPlayerFromHrp(hrp)
+	if (hrp == nil) then return nil end
+	local char = hrp.Parent
+	return self.Players:GetPlayerFromCharacter(char)
+end
+
 return PlayerService

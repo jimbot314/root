@@ -3,6 +3,7 @@ local StoreSeedModule = {}
 local VERBS = {
   Create = true,
   Inc = true,
+  Add = true,
   Set = true,
   Get = true,
   Delete = true,
@@ -94,5 +95,9 @@ function mt.Clear(self, storeName)
 end
 
 -- setmetatable(StoreSeedModule, mt)
+
+-- Aliases
+
+mt.Add = mt.Inc
 
 return StoreSeedModule

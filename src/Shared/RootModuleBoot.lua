@@ -220,7 +220,7 @@ end
 function ServerRootModule:_HandleVendorModules(vendorModules)
 	for k,vendorModule in pairs(vendorModules:GetChildren()) do
 		local moduleName = vendorModule.Name
-		if (self._rootignore[moduleName]) then
+		if (self._rootIgnore[moduleName]) then
 			continue
 		end
 		if (vendorModule.ClassName ~= "ModuleScript") then
@@ -243,7 +243,8 @@ function ServerRootModule:_InitModules()
 			-- 	print(module.ClassName)
 			-- 	print(eventModuleTypes)
 			-- end
-			if (eventModuleTypes[module.ClassName] ~= nil) then
+			if (true) then
+			-- if (eventModuleTypes[module.ClassName] ~= nil) then
 				registerFullSubscriptions(module, rootTable.PubSub)
 				registerRemotes(module, self._endpoints)
 			end
