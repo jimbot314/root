@@ -21,8 +21,8 @@ function applyVectorForce:Main(self, propsList, forceMagnitude)
 					Parent = part
 				}
 			)
-			--self.RunService.Heartbeat:Wait()
-			wait(0.1)
+			--self.RunService.Heartbeat:task.wait()
+			task.wait(0.1)
 
 			attachment:Destroy()
 			vectorForce:Destroy()

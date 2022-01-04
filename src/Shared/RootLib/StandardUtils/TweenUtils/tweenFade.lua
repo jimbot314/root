@@ -8,13 +8,13 @@ function tweenFade:Main(self, instance, params)
 	if (instance.ClassName == "Part") then
 		local tween = self:createTween(instance, {Time = 0.5}, {Transparency = 1})
 		tween:Play()
-		tween.Completed:Wait()
+		tween.Completed:task.wait()
 	else
 		-- it's a GUI
 		local tween = self:createTween(instance, {Time = 1}, {BackgroundTransparency = 1, TextTransparency = 1, TextStrokeTransparency = 1})
 		
 		tween:Play()
-		tween.Completed:Wait()
+		tween.Completed:task.wait()
 	end
 end
 

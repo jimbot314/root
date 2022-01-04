@@ -14,7 +14,7 @@ local newInstance = function(self, className, props)
 	instance.Parent = parent
 	if (ttl ~= nil) then
 		spawn(function()
-			wait(ttl)
+			task.wait(ttl)
 			
 			instance:Destroy()
 		end)

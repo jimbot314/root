@@ -23,7 +23,7 @@ function PlayerDataService:__OnPlayerAdded(plr)
 	end
 	while (db == nil) do
 		warn("Player added before db init")
-		wait(1)
+		task.wait(1)
 	end
 	local repeats = 0
 	local success, result
