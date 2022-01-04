@@ -24,8 +24,8 @@ function Groot:__OnStart()
 			Name = "GrootContentLoaded",
 			Parent = self.plr
 		})
-		self:emit("AfterGrootStart")
 	end
+	self:emit("AfterGrootStart")
 end
 
 function Groot:AbstractRender(tree, ancestor)

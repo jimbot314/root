@@ -1,5 +1,9 @@
 local newInstance = function(self, className, props)
 	local instance = Instance.new(className)
+	if (props == nil) then
+		return instance
+	end
+
 	local ttl = props.TTL
 	props.TTL = nil
 	local parent = props.Parent

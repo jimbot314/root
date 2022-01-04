@@ -11,6 +11,22 @@ end
 
 local describeQueue = {}
 
+local function run(suite)
+  warn(("Running test suite '%s'"):format(suite.Description))
+  local successes = 0
+  local total = #suite.DescribeInstance
+  for i2,test in ipairs(suite.DescribeInstance) do
+    local success, result = pcall(test.Callback)
+    if (not success) then
+      warn(("The following test failed %s"):format(test.Description))
+      warn(result)
+    else
+      successes += 1
+    end
+  end
+  warn(("Test suite %s finished running with %i/%i tests passing"):format(v.Description, successes, total))
+end
+
 function Test:describe(description, callback)
   local describeInstance = {}
   local test = Test:NewTestQueue(describeInstance)
@@ -28,20 +44,17 @@ function Test:describex(description, callback)
 end
 
 function Test:Run()
-  for i,v in ipairs(describeQueue) do
-    warn(("Running test suite '%s'"):format(v.Description))
-    local successes = 0
-    local total = #v.DescribeInstance
-    for i2,v2 in ipairs(v.DescribeInstance) do
-      local success, result = pcall(v2.Callback)
-      if (not success) then
-        warn(("The following test failed %s"):format(v2.Description))
-        warn(result)
-      else
-        successes += 1
-      end
+  for i,suite in ipairs(describeQueue) do
+    run(suite)
+  end
+end
+
+function Test:RunSuite(description)
+  for i,suite in ipairs(describeQueue) do
+    if (suite.description == description) then
+      run(suite)
+      break
     end
-    warn(("Test suite %s finished running with %i/%i tests passing"):format(v.Description, successes, total))
   end
 end
 
